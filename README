@@ -1,1 +1,18 @@
-Demo para el Hacklab de Django
+=====
+Sección Argentina Late en rojo:
+=====
+
+Main
+--------
+
+- Titulo del Bloque: acceso a la interna de la sección Argentina Late en Rojo
+- Imagen Estática: Mapa de la argentina, con el límite de las provincias, señalando como en google maps dónde hay hinchas de independiente.
+
+Espacio interactivo y de actualización:
+--------
+
+**Espacio para los posts de la última actividad de las diferentes peñas. Con los siguientes campos:**
+- Título (al hacer click sobre el titulo debe direccionar a la nota completa)
+- Imagen: se debe posicionar a la izquierda del contenido (Es opcional – No todos los post tienen imagen)
+- Texto: Se visualiza el primer párrafo
+- Fecha: Fecha de Publicación del Post, día/mes/año
