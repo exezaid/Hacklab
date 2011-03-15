@@ -1,0 +1,33 @@
+{% extends "bbase.html" %}
+{% block title %}ERROR 401 - No autorizado!{% endblock %}
+    <style type="text/css"><!--
+    h1 {}
+    h2 { font-size: 1.2em; }
+    #page{
+        background-color: #FFFFFF;
+        width: 60%;
+        margin: 24px auto;
+        padding: 12px;
+    }
+    #header {
+        padding: 6px ;
+        text-align: center;
+    }
+    .status4xx { background-color: #C55042; color: #FFFFFF; }
+    #content {
+        padding: 4px 0 24px 0;
+    }
+    --></style>
+{% block content %}
+    <div id="page">
+        <div id="header" class="status4xx">
+            <h1>ERROR 401 - No autorizado!</h1>
+        </div>
+        <div id="content">
+            <h2>Ocurrió el siguiente error:</h2>
+            <p>La URL solicitada requiere autorización.</p>
+			<P>Póngase en contacto con el <!--WEBMASTER//-->webmaster<!--WEBMASTER//--> por cualquier pregunta.</p>
+        </div>
+    </div>
+{% endblock %}
+

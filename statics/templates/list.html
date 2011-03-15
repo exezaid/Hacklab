@@ -1,0 +1,48 @@
+{% extends "bbase.html" %}
+
+{% block select1 %}class="current_page_item"{% endblock %}
+
+
+{% block content %}
+
+<!-- Posts  -->
+
+{% for post in post_list %}
+<div class="post">
+  <div class="post_title">
+    <h2><a class="small"  href="{% url blog.views.post post.slug %}">{{ post.title }}</a></h2>
+  </div>
+
+  {% load markup %}
+  <div class="post_date">Escrito el {{ post.created }} por <a href="#">{{ post.author }}</a></div>
+  <div class="post_body">{{ post.body|markdown|truncatewords_html:100|linebreaks }}</div>
+  <div class="post_meta">
+    <a href="{% url blog.views.post post.slug %}">
+      {{ post.comment_set.count }} comentarios</a> | Category: <a href="#">{{ post.category  }}</a>
+  </div>
+</div>
+{% endfor %}
+
+<!-- Next/Prev page links  -->
+{% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
+<div class="archive_pagination">
+  <span class="step-links">
+
+    {% if posts.has_previous %}
+    &laquo;<a href= "?page={{ posts.previous_page_number }}">Entradas recientes</a>
+    {% endif %}
+
+    <span class="current">
+      &nbsp;Página {{ posts.number }} de {{ posts.paginator.num_pages }}
+    </span>
+
+    {% if posts.has_next %}
+    <a href="?page={{ posts.next_page_number }}">Entradas anteriores</a>&raquo;
+    {% endif %}
+
+  </span>
+</div>
+{% endif %}
+
+{% endblock %}
+

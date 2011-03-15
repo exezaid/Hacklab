@@ -1,0 +1,33 @@
+{% extends "bbase.html" %}
+{% block title %}ERROR 500 - Error interno del servidor!{% endblock %}
+    <style type="text/css"><!--
+    h1 {}
+    h2 { font-size: 1.2em; }
+    #page{
+        background-color: #FFFFFF;
+        width: 60%;
+        margin: 24px auto;
+        padding: 12px;
+    }
+    #header {
+        padding: 6px ;
+        text-align: center;
+    }
+    .status5xx { background-color: #F2E81A; color: #000000; }
+    #content {
+        padding: 4px 0 24px 0;
+    }
+    --></style>
+{% block content %}
+    <div id="page">
+        <div id="header" class="status5xx">
+            <h1>ERROR 500 - Error interno del servidor!</h1>
+        </div>
+        <div id="content">
+            <h2>Ocurrió el siguiente error:</h2>
+            <p>La URL solicitada provocó un error interno en el servidor.</p>
+			<P>Si recibe este mensaje en varias ocasiones por favor, contacte con el <!--WEBMASTER//-->webmaster<!--WEBMASTER//-->.</p>
+        </div>
+    </div>
+{% endblock %}
+

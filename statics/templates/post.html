@@ -1,0 +1,81 @@
+{% extends "bbase.html" %}
+
+{% block content %}
+<div class="post">
+
+  <!-- Post  -->
+  <div class="post_title"><h1>{{ post.title }}</h1></div>
+  {% load markup %}
+  <div class="post_date">Escrito el {{ post.created }} por <a href="#">{{ post.author }}</a></div>
+  <div class="post_body">{{ post.body|markdown }}</div>
+  <div class="post_meta">
+    Category: <a href="#">{{ post.category }}</a>
+  </div>
+
+</div>
+
+<!-- Comments  -->
+{% if comments %}
+<h3 class="left">Comentarios</h3>
+<p class="right"><a href="#comentario">Ingresa un comentario &#187;</a></p>
+{% endif %}
+
+<div class="clearer">&nbsp;</div>
+
+<div class="comment_list">
+{% load mytags %}
+  <form action="#" method="POST">{% csrf_token %}
+    {% for comment in comments %}
+    <div class="comment">
+      <div class="comment_gravatar left">{% show_gravatar comment.email 48 %}</div>
+      <div class="comment_author left"><a href="">{{ comment.author}}</a>
+        <div class="comment_date">{{ comment.created }}</div>
+      </div>
+      <div class="clearer">&nbsp;</div>
+      <div class="comment_body">{{ comment.body|linebreaks }}</div>
+    </div>
+    {% endfor %}
+  </form>
+
+</div>
+
+<!-- Comment form  -->
+<form id="comentario" action="{% url blog.views.add_comment post.slug %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <div class="legend"><h3>Ingresa un comentario</h3></div>
+    <div class="form_row">
+      {% if user.is_staff %}
+      <div class="form_property form_required">Nombre</div>
+      <div class="form_value">{{ user.username }}</div><label class="hidden">{{ form.author }}</label>
+      <div class="clearer">&nbsp;</div>
+    </div>
+    <div class="form_row">
+      <div class="form_property form_required">Email</div>
+      <div class="form_value">{{ user.email }}</div><label class="hidden">{{ form.email }}</label>
+      <div class="clearer">&nbsp;</div>
+      {% else %}
+      <div class="form_property form_required">Nombre</div>
+      <div class="form_value">{{ form.author }}</div>
+      <div class="clearer">&nbsp;</div>
+    </div>
+    <div class="form_row">
+      <div class="form_property form_required">Email</div>
+      <div class="form_value">{{ form.email }}</div>
+      <div class="clearer">&nbsp;</div>
+      {% endif %}
+    </div>
+    <div class="form_row">
+      <div class="form_property form_required">Comentario</div>
+      <div class="form_value">{{ form.body|linebreaks }}</div>
+      <div class="clearer">&nbsp;</div>
+    </div>
+
+    <div class="form_row form_row_submit">
+      <div id="submit" class="form_value"><input class="button" type="submit" value="Comentar »"></div>
+      <div class="clearer">&nbsp;</div>
+    </div>
+  </fieldset>
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,34 @@
+
+<div class="box">
+  <div class="box_title">Quienes somos</div>
+  <div class="box_content">
+    <p>L.U.G. Tucumán  es una comunidad de Software Libre de la provincia de Tucumán (Argentina) que tiene como objetivo promover el uso de Software Libre y motivar a las personas a su utilización y participación del libre conocimiento.</p>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box_title">Archivos</div>
+  <div class="box_content">
+    <ul>
+      {% for month in months %}
+        {% ifchanged month.0 %} {{ month.0 }} {% endifchanged %}
+        <li><a href="{% url blog.views.month month.0 month.1 %}">{{ month.2 }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box_title">Secciones</div>
+  <div class="box_content">
+    <ul>
+      <li><a href="http://galeria.lugtucuman.org.ar" target="_blank">Galeria de Fotos</a> </li> 
+      <li><a href="http://wiki.lugtucuman.org.ar" target="_blank">Wiki</a> </li>
+      <li><a href="http://trac.usla.org.ar/hacklabstucuman" target="_blank">Trac</a></li>
+      <li><a href="http://listas.linux.org.ar/pipermail/tucuman-lst/" target="_blank">Archivo de la lista</a> </li> 
+      <li><a href="http://www.mail-archive.com/tucuman-lst@listas.linux.org.ar/maillist.html"
+      target="_blank">Mensajes recientes</a> </li>
+    </ul>
+  </div>
+</div>
+

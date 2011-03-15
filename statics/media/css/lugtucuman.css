@@ -1,0 +1,44 @@
+/*
+    LUG Tucuman
+*/
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.admin {
+    text-align: center;
+    vertical-align: top;
+}
+
+.admin a {
+    text-decoration: none;
+}
+
+#site_banner {
+    float: right;
+    width: 470px;
+    height: 65px;
+    padding: 28px 12px 0;
+    overflow: hidden;
+}
+
+.archive_pagination {
+    text-align: center;
+}
+
+.step_links {
+}
+
