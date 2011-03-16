@@ -1,4 +1,4 @@
-{% extends "bbase.html" %}
+{% extends "base.html" %}
 
 {% block select1 %}class="current_page_item"{% endblock %}
 
@@ -6,19 +6,21 @@
 {% block content %}
 
 <!-- Posts  -->
+{%load comments%}
 
 {% for post in post_list %}
 <div class="post">
   <div class="post_title">
-    <h2><a class="small"  href="{% url blog.views.post post.slug %}">{{ post.title }}</a></h2>
+    <h2><a class="small"  href="{{ post.get_absolute_url  }}">{{ post.title }}</a></h2>
   </div>
 
   {% load markup %}
   <div class="post_date">Escrito el {{ post.created }} por <a href="#">{{ post.author }}</a></div>
   <div class="post_body">{{ post.body|markdown|truncatewords_html:100|linebreaks }}</div>
   <div class="post_meta">
-    <a href="{% url blog.views.post post.slug %}">
-      {{ post.comment_set.count }} comentarios</a> | Category: <a href="#">{{ post.category  }}</a>
+    <a href="{{ post.get_absolute_url  }}">
+    {% get_comment_count for post as comment_count %}
+      {{ comment_count }} comentarios</a> | Category: <a href="#">{{ post.category  }}</a>
   </div>
 </div>
 {% endfor %}

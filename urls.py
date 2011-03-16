@@ -16,8 +16,7 @@ urlpatterns = patterns('',
     (r'^feeds/latest/$', LatestEntries()),
 
     url(r'^(?P<slug>[-\w]+)/$', 'apps.blog.views.post',   name='post'),
-    url(r'^add_comment/(?P<slug>[-\w]+)/$', 'apps.blog.views.add_comment', name='add_comment'),
-    url(r'^month/(\d+)/(\d+)/$', 'apps.blog.views.month', name='month'),
+    (r'^comments/', include('django.contrib.comments.urls')),
     url(r'^$', 'apps.blog.views.main', name='main'),
 )
 

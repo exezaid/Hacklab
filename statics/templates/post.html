@@ -1,4 +1,4 @@
-{% extends "bbase.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <div class="post">
@@ -21,61 +21,46 @@
 {% endif %}
 
 <div class="clearer">&nbsp;</div>
-
-<div class="comment_list">
-{% load mytags %}
-  <form action="#" method="POST">{% csrf_token %}
-    {% for comment in comments %}
+{% load comments i18n %}
+{% get_comment_list for post as comment_list %}
+<div class="comment_start"></div>
+{% for comment in comment_list %}
     <div class="comment">
-      <div class="comment_gravatar left">{% show_gravatar comment.email 48 %}</div>
-      <div class="comment_author left"><a href="">{{ comment.author}}</a>
-        <div class="comment_date">{{ comment.created }}</div>
-      </div>
-      <div class="clearer">&nbsp;</div>
-      <div class="comment_body">{{ comment.body|linebreaks }}</div>
+       {{ comment.comment }}
+       (from <a href="#">{{ comment.user }}</a> - {{ comment.submit_date|timesince }} ago)
     </div>
-    {% endfor %}
-  </form>
+{% endfor %}
 
-</div>
+{% get_comment_form for post as form %}
 
-<!-- Comment form  -->
-<form id="comentario" action="{% url blog.views.add_comment post.slug %}" method="POST">{% csrf_token %}
-  <fieldset>
-    <div class="legend"><h3>Ingresa un comentario</h3></div>
-    <div class="form_row">
-      {% if user.is_staff %}
-      <div class="form_property form_required">Nombre</div>
-      <div class="form_value">{{ user.username }}</div><label class="hidden">{{ form.author }}</label>
-      <div class="clearer">&nbsp;</div>
-    </div>
-    <div class="form_row">
-      <div class="form_property form_required">Email</div>
-      <div class="form_value">{{ user.email }}</div><label class="hidden">{{ form.email }}</label>
-      <div class="clearer">&nbsp;</div>
-      {% else %}
-      <div class="form_property form_required">Nombre</div>
-      <div class="form_value">{{ form.author }}</div>
-      <div class="clearer">&nbsp;</div>
-    </div>
-    <div class="form_row">
-      <div class="form_property form_required">Email</div>
-      <div class="form_value">{{ form.email }}</div>
-      <div class="clearer">&nbsp;</div>
-      {% endif %}
-    </div>
-    <div class="form_row">
-      <div class="form_property form_required">Comentario</div>
-      <div class="form_value">{{ form.body|linebreaks }}</div>
-      <div class="clearer">&nbsp;</div>
-    </div>
-
-    <div class="form_row form_row_submit">
-      <div id="submit" class="form_value"><input class="button" type="submit" value="Comentar »"></div>
-      <div class="clearer">&nbsp;</div>
-    </div>
-  </fieldset>
-</form>
+{% if user.is_authenticated %}
+    <form action="{% comment_form_target %}" method="post">
+        {% csrf_token %}
+        {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+        {% for field in form %}
+            {% if field.is_hidden %}
+                {{ field }}
+            {% else %}
+                {% if field.name != "name" and field.name != "email" and field.name != "url" %}
+                    {% if field.errors %}{{ field.errors }}{% endif %}
+                    <p {% if field.errors %} class="error"{% endif %} {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+                    {{ field.label }}
+                    {{ field }}
+                    </p>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <input type="submit" name="post" class="submit-post" value="Comentar" />
+    </form>
+    {% else %}
+    <form action="{% comment_form_target %}" method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <tr>
+        <td></td>
+        <td><input type="submit" name="preview" class="submit-post" value="Vista previa"></td>
+      </tr>
+    </form>
+{% endif %}
 
 {% endblock %}
 
