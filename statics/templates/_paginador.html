@@ -8,7 +8,7 @@
                     <li class=""><a href="?page={{ page_obj.previous_page_number }}">&lsaquo;</a></li>
                 {% endif %}
             {% endif %}
-            <li class=" {% ifequal p page_obj.number %} {% endifequal %}"><a href="?page={{ p }}"{% ifequal p page_obj.number %} class="b c3"{% endifequal %}>{{ p }}</a></li>
+            <li class=" {% ifequal p page_obj.number %}pagination_select{% endifequal %}"><a href="?page={{ p }}"{% ifequal p page_obj.number %} class="b c3"{% endifequal %}>{{ p }}</a></li>
             {% if forloop.last %}
                 {% if page_obj.has_next %}
                     <li class=""><a href="?page={{ page_obj.next_page_number }}">&rsaquo;</a></li>

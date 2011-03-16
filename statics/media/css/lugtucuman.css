@@ -9,5 +9,6 @@
 .admin a {text-decoration: none; }
 #site_banner {float: right;width: 470px;height: 65px;padding: 28px 12px 0;overflow: hidden;}
 .archive_pagination {text-align: center;}
+.pagination_select {background: #CCC;border: 1px solid #D5D5D5;}
 .step_links { }
 

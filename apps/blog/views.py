@@ -14,7 +14,7 @@ BLOG_PAGINATION = getattr(settings, 'BLOG_PAGINATION', 5)
 def main(request):
     posts = Post.objects.all().order_by("-created")
     return list_detail.object_list(request, queryset=posts,
-                    paginate_by=BLOG_PAGINATION, template_name="list.html")
+                    paginate_by=BLOG_PAGINATION, template_name='list.html')
 
 
 @csrf_protect
@@ -26,5 +26,7 @@ def post(request, slug):
 
 
 def category(request, object_pk=None):
-    qs = Post.objects.all().filter(category=object_pk)
-    return list_detail.object_list(request, template_name='category_list.html', queryset=qs)
+    qs = Post.objects.all().filter(category=object_pk).order_by("-created")
+    return list_detail.object_list(request, queryset=qs,
+                        paginate_by=BLOG_PAGINATION,
+                        template_name='category_list.html',)

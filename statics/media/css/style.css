@@ -359,58 +359,30 @@ img.right,img.alignright {margin: 0 0 15px 12px;}
 #sidebar a:hover {color: #000;}
 
 /* Dashboard */
-#dashboard {
-	background: #CCC;
-	border-top: 1px solid #D5D5D5;
-	font-size: 0.9em;
-}
+#dashboard {background: #CCC;border-top: 1px solid #D5D5D5;font-size: 0.9em;}
 #dashboard_inner {padding: 16px 20px 6px;}
 
 #dashboard .col3 {width: 255px;}
 #dashboard .col3mid {width: 337px;}
-#dashboard .col3mid .col3_content {
-	border-left: 1px solid #B5B5B5;
-	border-right: 1px solid #B5B5B5;
-	padding: 0 20px;
-	margin: 0 20px;
-}
-#dashboard .col_title {
-	color: #666;
-	font-size: 1.4em;
-	font-weight: bold;
-	padding-bottom: 5px;
-}
+#dashboard .col3mid .col3_content {border-left: 1px solid #B5B5B5;border-right: 1px solid #B5B5B5;padding: 0 20px;margin: 0 20px;}
+#dashboard .col_title {color: #666;font-size: 1.4em;font-weight: bold;padding-bottom: 5px;}
 
-#dashboard li {
-	color: #777;
-	padding: 4px 0;
-}
+#dashboard li {color: #777;padding: 4px 0;}
 #dashboard li {border-top: 1px solid #BEBEBE;}
-#dashboard li a {
-	color: #666;
-	text-decoration: none;
-}
-#dashboard li a:hover {
-	color: #333;
-	text-decoration: underline;
-}
+#dashboard li a {color: #666;text-decoration: none;}
+#dashboard li a:hover {color: #333;text-decoration: underline;}
 
 
 /* Footer links */
-#footer {
-	background: url('/media/img/footer.gif') no-repeat;
-	color: #777;
-	font-size: 0.9em;
-	padding: 22px 8px 10px;
-}
+#footer {background: url('/media/img/footer.gif') no-repeat;color: #777;font-size: 0.9em;padding: 22px 8px 10px;}
 #footer a {color: #999;}
-#footer .right, #footer .right a {
-	color: #666;
-	text-decoration: none;
-}
+#footer .right, #footer .right a {color: #666;text-decoration: none;}
 #footer a:hover {color: #999;}
 
-#pagination ul li{list-style-type:none; display: inline; }
+#pagination ul li{list-style-type:none; display: inline; font-size: 14px; }
+#pagination ul li a {text-decoration: none; padding: 5px; }
+#pagination ul li a:hover {text-decoration: none; padding: 5px; }
+
 
 /*
    Posts
