@@ -16,9 +16,15 @@ class Author(models.Model):
 
 class Category(models.Model):
     name_category = models.CharField(max_length=15)
+    slug = models.SlugField(max_length=30, unique=True)
 
     def __unicode__(self):
       return self.name_category
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('apps.blog.views.category', (), {'object_pk':self.pk})
+
 
 
 class Post(models.Model):

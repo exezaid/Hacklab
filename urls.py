@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^(?P<slug>[-\w]+)/$', 'apps.blog.views.post',   name='post'),
     (r'^comments/', include('django.contrib.comments.urls')),
     url(r'^$', 'apps.blog.views.main', name='main'),
+    url(r'^category/(?P<object_pk>[0-9]+)/$', 'apps.blog.views.category', name='blog_category'),
 )
 
 import sys, os

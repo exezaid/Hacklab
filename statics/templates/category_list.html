@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+
+
+{%load comments%}
+{% for post in object_list %}
+<div class="post">
+  <div class="post_title">
+    <h2><a class="small"  href="{{ post.get_absolute_url  }}">{{ post.title }}</a></h2>
+  </div>
+
+  {% load markup %}
+  <div class="post_date">Escrito el {{ post.created }} por <a href="#">{{ post.author }}</a></div>
+  <div class="post_body">{{ post.body|markdown|truncatewords_html:100|linebreaks }}</div>
+  <div class="post_meta">
+    <a href="{{ post.get_absolute_url  }}">
+    {% get_comment_count for post as comment_count %}
+      {{ comment_count }} comentarios</a> | Category: <a href="{{ post.category.get_absolute_url }}">{{ post.category  }}</a>
+  </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

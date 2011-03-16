@@ -20,7 +20,7 @@
   <div class="post_meta">
     <a href="{{ post.get_absolute_url  }}">
     {% get_comment_count for post as comment_count %}
-      {{ comment_count }} comentarios</a> | Category: <a href="#">{{ post.category  }}</a>
+      {{ comment_count }} comentarios</a> | Category: <a href="{{ post.category.get_absolute_url }}">{{ post.category  }}</a>
   </div>
 </div>
 {% endfor %}

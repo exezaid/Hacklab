@@ -9,7 +9,7 @@
   <div class="post_date">Escrito el {{ post.created }} por <a href="#">{{ post.author }}</a></div>
   <div class="post_body">{{ post.body|markdown }}</div>
   <div class="post_meta">
-    Category: <a href="#">{{ post.category }}</a>
+    Category: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>
   </div>
 
 </div>

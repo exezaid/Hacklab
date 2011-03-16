@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.context_processors import csrf
-from django.shortcuts import  render_to_response
+from django.shortcuts import  render_to_response, get_object_or_404
+from django.views.generic import  list_detail
 import time
 
 from apps.blog.models import Post
@@ -26,3 +27,9 @@ def post(request, slug):
     d = dict(post=post, user=request.user)
     d.update(csrf(request))
     return render_to_response("post.html", d)
+
+
+
+def category(request, object_pk=None):
+    qs = Post.objects.all().filter(category=object_pk)
+    return list_detail.object_list(request, template_name='category_list.html', queryset=qs)
