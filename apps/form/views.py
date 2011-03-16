@@ -1,14 +1,12 @@
 # *-* encoding:utf-8 *-*
 
-from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.decorators.csrf import csrf_protect
 
 from models import Form
-from forms import *
+from forms import ContactForm
 
 
 @csrf_protect
