@@ -1,4 +1,4 @@
-
+{% load blogtags %}
 <div class="box">
   <div class="box_title">Quienes somos</div>
   <div class="box_content">
@@ -7,13 +7,13 @@
 </div>
 
 <div class="box">
-  <div class="box_title">Archivos</div>
+  <div class="box_title">Categorias</div>
   <div class="box_content">
     <ul>
-
-
-
-
+{% get_category as category %}
+  {% for object in category %}
+    <li><a href="{{ object.get_absolute_url }}">{{ object.name_category }}</a></li>
+  {% endfor %}
     </ul>
   </div>
 </div>

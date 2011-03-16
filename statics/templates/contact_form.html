@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="legend"> <p>Registro FLISoL 2011 Tucumán</p>
+<p>23 de abril del 2011 de 9:00 a 21:00 Hs en el Centro Cultural Eugenio Flavio</p>
+<p>Virla 25 de Mayo 265 - S.M. de Tucumán</p>
+</div><br /><br />
+<form  action="{% url contact_form %}" method="POST" >{% csrf_token %}
+       		<div id="form">
+       		    {{ form.non_field_errors }}
+       		    <div class="form_property form_required">{{ form.firstname.label}}*</div>
+                {{ form.firstname.errors }}
+                <div class="form_value">{{ form.firstname }}</div><br /><br />
+                <div class="form_property form_required">{{ form.lastname.label }}* </div>
+                {{ form.lastname.errors }}
+                <div class="form_value">{{ form.lastname}}</div><br /><br />
+                <div class="form_property form_required">{{ form.email.label }}* </div>
+                {{ form.email.errors }}
+                <div class="form_value">{{ form.email}}</div><br /><br />
+                <div class="legend">Deseo llevar mi Computadora o pentdrive para instalación de un sistema libre.</div><br />
+                {{ form.pc.errors }}
+                <div class="mradio">
+                <input name="pc" type="radio" value="S" />SI<input name="pc" type="radio" value="N" />NO</span><br /><br style="clear:both;">
+                </div>
+                <div class="form_property form_required">{{ form.tipo.label }}</div><br />
+                {{ form.tipo.errors }}<br />
+                <div class="mradio">
+                <input name="tipo" type="radio" value="NOT" />Es una Portatil<br />
+                <input name="tipo" type="radio" value="DES" />Es una PC de escritorio<br />
+                <input name="tipo" type="radio" value="MAC" />Es una Mac u otra<br />
+                <input name="tipo" type="radio" value="PEN" />Llevare un Pentdrive (debe ser de 512 Mb o mas</span><br /><br style="clear:both;">
+                </div>
+                <div class="legend">
+                    Si tienes los conocimientos necesarios(*) y quieres conservar tu sistema
+                    operativo actual y/o alguna partición en particular te aconsejamos hacer(**)
+                    una partición de por los menos 10 Gb y otra de por lo menos 512 Mb para alojar
+                    el nuevo sistema y memoria de intercambio respectivamente. De lo contrario no
+                    te preocupes, nosotros te ayudamos, solo te pedimos que defragmentes
+                    correctamente todas las unidades que posa tu computadora, al menos un día
+                    antes del FLISoL y que hagas copias de seguridad (Backup) de toda información
+                    importante que tengas.
+                </div><br />
+                <div class="form_property form_required">{{ form.caso.label }}</div><br />
+                {{ form.caso.errors }}<br />
+                <div class="mradio">
+                <input name="caso" type="radio" value="PARTI" />Llevare mi Computadora con las particiones listas(*)<br />
+                <input name="caso" type="radio" value="DESFR" />Llevare mi Computadora defragmentada<br />
+                <input name="caso" type="radio" value="BORRA" />Se puede borrar el disco entero</span><br /><br style="clear:both;">
+                </div>
+                <div >Campos Obligatorios*</div>
+                <br style="clear:both;">
+                <div class="legend" ><p>(*)Se ruega no intentar particionar o reparticionar tu
+                disco si no tienes los
+                conocimientos necesarios (situación en la cual
+                se pide explícitamente concurrir con las particiones
+                defragmentadas)
+                </p>
+
+                </p>(**)El LUG Tucumán no se responsabiliza por perdidas de datos
+                que pudieran
+                ocurrir. Todos los concurrentes deben poseer los Backup
+                correspondientes al
+                asistir al evento.</p>
+                </div><br />
+                <div id="submit" class="form_value"><input type="submit" class="button" value="Enviar"></div>
+      		</div>
+</form>
+<div class="clearer">&nbsp;</div>
+{% endblock %}
+
