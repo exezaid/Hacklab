@@ -17,7 +17,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prueba',
+        'NAME': 'prueba2',
         'USER': 'prueba',
         'PASSWORD': 'prueba',
         'HOST': '192.168.1.60',

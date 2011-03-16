@@ -16,7 +16,6 @@ urlpatterns = patterns('',
     (r'^recommend/', direct_to_template, {'template':'recommend.html'}, 'recommend'),
     (r'^feeds/latest/$', LatestEntries()),
 
-    (r'', include('apps.facebook.urls')),
     (r'^contact/', include('apps.form.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
 )

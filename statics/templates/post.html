@@ -21,7 +21,7 @@
 {% endif %}
 
 <div class="clearer">&nbsp;</div>
-{% load comments i18n %}
+{% load comments %}
 {% get_comment_list for post as comment_list %}
 <div class="comment_start"></div>
 {% for comment in comment_list %}

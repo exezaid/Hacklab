@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.context_processors import csrf
 from django.shortcuts import  render_to_response, get_object_or_404
+from django.views.decorators.csrf import csrf_protect
 from django.views.generic import  list_detail
 import time
 
@@ -18,14 +19,13 @@ def main(request):
     except (InvalidPage, EmptyPage):
         posts = paginator.page(paginator.num_pages)
 
-    return render_to_response("list.html", dict(posts=posts, user=request.user,
+    return render_to_response("list.html", dict(posts=posts,
                                                 post_list=posts.object_list))
 
-
+@csrf_protect
 def post(request, slug):
     post = Post.objects.get(slug=slug)
     d = dict(post=post, user=request.user)
-    d.update(csrf(request))
     return render_to_response("post.html", d)
 
 
