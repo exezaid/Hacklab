@@ -8,6 +8,7 @@ from feeds import LatestEntries
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^', include('apps.blog.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url':'/media/img/favicon.ico'}),
     (r'^robots\.txt$', direct_to_template, {'template':'robots.txt', 'mimetype':'text/plain'}),
@@ -15,13 +16,9 @@ urlpatterns = patterns('',
     (r'^recommend/', direct_to_template, {'template':'recommend.html'}, 'recommend'),
     (r'^feeds/latest/$', LatestEntries()),
 
-
+    (r'', include('apps.facebook.urls')),
     (r'^contact/', include('apps.form.urls')),
-    url(r'^(?P<slug>[-\w]+)/$', 'apps.blog.views.post',   name='post'),
     (r'^comments/', include('django.contrib.comments.urls')),
-    url(r'^$', 'apps.blog.views.main', name='main'),
-    url(r'^category/(?P<object_pk>[0-9]+)/$', 'apps.blog.views.category', name='blog_category'),
-
 )
 
 import sys, os
