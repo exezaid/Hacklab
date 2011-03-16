@@ -104,19 +104,8 @@ table.data_table td {
 
 dl {margin-bottom: 2em;}
 dt,dd {padding: 8px 10px;}
-dt {
-	border-bottom: 1px solid #D5D5D5;
-	background: #E5E5E5;
-	color: #555;
-	font-weight: bold;
-}
-dd {
-	background: #F5F5F5;
-	border-bottom: 1px solid #E5E5E5;
-	padding-left: 16px;
-}
-
-
+dt {border-bottom: 1px solid #D5D5D5;background: #E5E5E5;color: #555;font-weight: bold;}
+dd {background: #F5F5F5;border-bottom: 1px solid #E5E5E5;padding-left: 16px;}
 /*
    Links
 ------------------------------------------------------------------- */
@@ -421,6 +410,7 @@ img.right,img.alignright {margin: 0 0 15px 12px;}
 }
 #footer a:hover {color: #999;}
 
+#pagination ul li{list-style-type:none; display: inline; }
 
 /*
    Posts
@@ -467,6 +457,8 @@ img.right,img.alignright {margin: 0 0 15px 12px;}
 	padding: 0;
 }
 .archive_post_day {font: normal 1.6em Georgia,serif;}
+
+
 
 
 /*

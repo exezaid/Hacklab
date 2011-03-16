@@ -8,7 +8,7 @@
 <!-- Posts  -->
 {%load comments%}
 
-{% for post in post_list %}
+{% for post in object_list %}
 <div class="post">
   <div class="post_title">
     <h2><a class="small"  href="{{ post.get_absolute_url  }}">{{ post.title }}</a></h2>
@@ -26,25 +26,7 @@
 {% endfor %}
 
 <!-- Next/Prev page links  -->
-{% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
-<div class="archive_pagination">
-  <span class="step-links">
-
-    {% if posts.has_previous %}
-    &laquo;<a href= "?page={{ posts.previous_page_number }}">Entradas recientes</a>
-    {% endif %}
-
-    <span class="current">
-      &nbsp;Página {{ posts.number }} de {{ posts.paginator.num_pages }}
-    </span>
-
-    {% if posts.has_next %}
-    <a href="?page={{ posts.next_page_number }}">Entradas anteriores</a>&raquo;
-    {% endif %}
-
-  </span>
-</div>
-{% endif %}
+{% include '_paginador.html' %}
 
 {% endblock %}
 
