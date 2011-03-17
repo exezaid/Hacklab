@@ -80,6 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.comments',
     'apps.blog',
+    'apps.form',
 )
 
 EMAIL_USE_TLS = True
