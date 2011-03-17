@@ -13,6 +13,9 @@ class Category(models.Model):
     def get_absolute_url(self):
         return ('apps.blog.views.category', (), {'object_pk':self.pk})
 
+    class Meta:
+        verbose_name = u'Categoria'
+        verbose_name_plural = u'Categorias'
 
 
 class Post(models.Model):
@@ -31,7 +34,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return ('apps.blog.views.post', (), {'slug':self.slug})
 
-
+    class Meta:
+        verbose_name = u'Publicacion'
+        verbose_name_plural = u'Publicaciones'
 
 
 
