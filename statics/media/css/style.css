@@ -438,13 +438,7 @@ img.right,img.alignright {margin: 0 0 15px 12px;}
 ------------------------------------------------------------------- */
 
 .thumbnails {margin: 0 -0 2em -8px;}
-.thumbnails a.thumb {
-	background: #D5D5D5;
-	display: block;
-	float: left;
-	margin: 0 0 8px 8px;
-	padding: 3px;
-}
+.thumbnails a.thumb {background: #D5D5D5;display: block;float: left;margin: 0 0 8px 8px;padding: 3px;}
 .thumbnails a.thumb:hover {background: #C0C0C0;}
 .thumbnails .thumb img {display: block;}
 
@@ -454,14 +448,7 @@ img.right,img.alignright {margin: 0 0 15px 12px;}
 ------------------------------------------------------------------- */
 
 .box {margin-bottom: 0.6em;}
-.box_title {
-	background: #E5E5E5;
-	border: 1px solid #EAEAEA;
-	border-color: #EAEAEA #D5D5D5 #D5D5D5 #E5E5E5;
-	color: #777;
-	font: bold 1.3em sans-serif;
-	padding: 6px 10px;
-}
+.box_title {background: #E5E5E5;border: 1px solid #EAEAEA;border-color: #EAEAEA #D5D5D5 #D5D5D5 #E5E5E5;color: #777;font: bold 1.3em sans-serif;padding: 6px 10px;}
 .box_content {padding: 8px 0 8px;}
 .box li:first-child {border-top: none;}
 
@@ -470,32 +457,16 @@ img.right,img.alignright {margin: 0 0 15px 12px;}
    Comments
 ------------------------------------------------------------------- */
 
-div.comment_list {
-	border-top: 1px solid #D6D6D6;
-	margin: 1em 0 2em;
-}
+div.comment_list {border-top: 1px solid #D6D6D6;margin: 1em 0 2em;}
 
-.comment {
-	border-bottom: 1px solid #D6D6D6;
-	padding-top: 10px;
-}
+.comment {border-bottom: 1px solid #D6D6D6;padding-top: 10px;}
 .comment_date {font-size: 0.9em;}
-.comment_date a {
-	color: #567;
-	text-decoration: none;
-}
-.comment_date a:hover {
-	color: #001;
-	text-decoration: underline;
-}
+.comment_date a {color: #567;text-decoration: none;}
+.comment_date a:hover {color: #001;text-decoration: underline;}
 .comment_body {padding-top: 4px;}
 
 .comment_gravatar {width: 48px;}
-.comment_gravatar img {
-	background: #FFF;
-	border: 1px solid #DDD;
-	padding: 2px;
-}
+.comment_gravatar img {background: #FFF;border: 1px solid #DDD;padding: 2px;}
 
 /* Single Line IE Fixes */
 * html #nav1, * html #nav2, * html #layout_body, * html #dashboard_inner, * html #footer {height: 0.01%; min-height: 0.01%;}

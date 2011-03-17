@@ -3,6 +3,7 @@ from django.core.context_processors import csrf
 from django.shortcuts import  render_to_response, get_object_or_404
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import  list_detail
+from django.template import RequestContext
 from django.conf import settings
 import time
 
@@ -20,8 +21,7 @@ def main(request):
 @csrf_protect
 def post(request, slug):
     post = Post.objects.get(slug=slug)
-    d = dict(post=post, user=request.user)
-    return render_to_response("post.html", d)
+    return render_to_response("post.html", RequestContext(request, {'post': post}))
 
 
 

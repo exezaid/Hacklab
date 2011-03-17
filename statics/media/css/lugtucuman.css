@@ -12,3 +12,17 @@
 .pagination_select {background: #CCC;border: 1px solid #D5D5D5;}
 .step_links { }
 
+.form-data          { width:100%; margin:auto; padding-left: 20px; }
+.form-data label    { font-weight:700; margin-right: 250px; }
+.form-data ul > li     { overflow: hidden; margin:10px 0; background:none; }
+.form-data ul > li p   { margin:0 0 0 0px; padding-top:5px }
+.form-data textarea { padding:3px; width: 380px; height:150px;  border:solid 2px #ddd;margin-right: 300px;margin-bottom:0px; }
+.errorlist   { color:#fd5001; font-weight:700 }
+.form-data ul > li.error input,
+.form-data ul > li.error select,
+.form-data ul > li.error textarea { border: 2px solid #ff8844; }
+.form-data input[type='text'] { width: 380px; height:25px; padding:0 3px;  border:solid 1px #ccc; color:#fff;margin-right: 300px;margin-bottom:0px; }
+.form-data input[type='button'],
+.form-data input[type='submit'] {background:#565656; width:150px; height:38px; padding:0 3px;  border:solid 1px #ccc; color:#fff; }
+#id_honeypot { display:none; }
+.form-data p label[for="id_honeypot"] {display: none;}

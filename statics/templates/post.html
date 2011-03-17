@@ -13,28 +13,37 @@
   </div>
 
 </div>
-
+{% load comments blogtags %}
+{% get_comment_list for post as comment_list %}
 <!-- Comments  -->
-{% if comments %}
+{% if comment_list %}
 <h3 class="left">Comentarios</h3>
 <p class="right"><a href="#comentario">Ingresa un comentario &#187;</a></p>
 {% endif %}
 
 <div class="clearer">&nbsp;</div>
-{% load comments %}
-{% get_comment_list for post as comment_list %}
-<div class="comment_start"></div>
+
+
+<div class="comment_list">
 {% for comment in comment_list %}
     <div class="comment">
-       {{ comment.comment }}
-       (from <a href="#">{{ comment.user }}</a> - {{ comment.submit_date|timesince }} ago)
+        <div class="comment_gravatar left">{% show_gravatar comment.user_email 48 %}</div>
+        <div class="comment_author left"><a href="">{{ comment.user_name }}</a>
+            <div class="comment_date">{{ comment.submit_date|timesince }}</div>
+        </div>
+        <div class="clearer">&nbsp;</div>
+        <blockquote>
+          <div class="comment_body">{{ comment.comment }}</div>
+        </blockquote>
     </div>
-{% endfor %}
 
+
+{% endfor %}
+    </div>
 {% get_comment_form for post as form %}
 
 {% if user.is_authenticated %}
-    <form action="{% comment_form_target %}" method="post">
+    <form class="form-data" action="{% comment_form_target %}" method="post">
         {% csrf_token %}
         {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
         {% for field in form %}
@@ -53,7 +62,8 @@
         <input type="submit" name="post" class="submit-post" value="Comentar" />
     </form>
     {% else %}
-    <form action="{% comment_form_target %}" method="post">{% csrf_token %}
+    <form class="form-data" action="{% comment_form_target %}" method="post">
+    {% csrf_token %}
       {{ form.as_p }}
       <tr>
         <td></td>
