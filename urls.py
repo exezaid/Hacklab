@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     (r'^about/', direct_to_template, {'template':'about.html'}, 'default'),
     (r'^recommend/', direct_to_template, {'template':'recommend.html'}, 'recommend'),
     (r'^feeds/latest/$', LatestEntries()),
+    (r'^admin/filebrowser/', include('apps.filebrowser.urls')),
+
 
     (r'^contact/', include('apps.form.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
@@ -26,3 +28,4 @@ if 'runserver' in sys.argv or 'runserver_plus':
     urlpatterns = patterns('', url(r'^media/(.*)$', 'django.views.static.serve',
         kwargs={'document_root': settings.MEDIA_ROOT}),
     ) + urlpatterns
+
