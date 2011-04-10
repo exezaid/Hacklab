@@ -14,7 +14,7 @@ BLOG_PAGINATION = getattr(settings, 'BLOG_PAGINATION', 5)
 
 
 def main(request):
-      posts = Post.objects.all().order_by("-created")
+    posts = Post.objects.all().order_by("-created")
     return list_detail.object_list(request, queryset=posts,
                     paginate_by=BLOG_PAGINATION, template_name='list.html')
 

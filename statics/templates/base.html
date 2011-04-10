@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
@@ -16,56 +16,54 @@
   <body>
     <div id="layout_wrapper_outer">
       <div id="layout_wrapper">
-	<div id="layout_top">
-	  <div id="site_banner">
-	  </div>
+    <div id="layout_top">
+      <div id="site_banner">
+      </div>
           <div id="site_title">
             <h1><a href="/">L.U.G. <span>Tucumán</span></a></h1>
-	    <h2>Grupo de Usuarios de Software Libre</h2>
-	  </div>
-	</div>
+        <h2>Grupo de Usuarios de Software Libre</h2>
+      </div>
+    </div>
 
         <div id="layout_body_outer">
-	  <div id="layout_body">
-	    <div id="navigation">
-	      <div id="nav1">
-		<ul>
-		  <li {% block select1 %}{% endblock %}><a href="/">Inicio</a></li>
-		  <li {% block select2 %}{% endblock %}><a href="/about/">Quienes somos</a></li>
-		  <li {% block select3 %}{% endblock %}><a href="/recommend/">Recomendaciones</a></li>
-		</ul>
-		<div class="clearer">&nbsp;</div>
-	      </div>
-	    </div>
+      <div id="layout_body">
+        <div id="navigation">
+          <div id="nav1">
+        <ul>
+          <li {% block select1 %}{% endblock %}><a href="/">Inicio</a></li>
+          <li {% block select2 %}{% endblock %}><a href="/about/">Quienes somos</a></li>
+          <li {% block select3 %}{% endblock %}><a href="/recommend/">Recomendaciones</a></li>
+        </ul>
+        <div class="clearer">&nbsp;</div>
+          </div>
+        </div>
 
-	    <div id="main">
-	      <div class="left" id="content_outer">
-		<div id="content">
+        <div id="main">
+          <div class="left" id="content_outer">
+        <div id="content">
                   {% block content %}{% endblock %}
-		</div>
-	      </div>
-	      <div class="right" id="sidebar_outer">
-		<div id="sidebar">
+        </div>
+          </div>
+          <div class="right" id="sidebar_outer">
+        <div id="sidebar">
                   {% include "sidebar.html" %}
-		</div>
-	      </div>
-	      <div class="clearer">&nbsp;</div>
-	    </div>
-	  </div>
-	</div>
-	<div id="footer">
-	  <div class="left">
-	    &copy; {% now "Y" %} L.U.G. Tucumán
-	  </div>
-	  <div class="right">
-	    <a href="http://arcsin.se/" target="_blank"><img src="/media/img/cc.png" alt="Arcsin" /></a>
-	    <a href="http://djangoproject.com/"
-	    target="_blank"><img src="/media/img/django.png"
-	    alt="Django" /></a>
-	    <a href="http://www.usla.org.ar" target="_blank"><img src="/media/img/usla.png" alt="USLA" /></a>
-	  </div>
-	  <div class="admin">
-	    {% block nav-global %}
+        </div>
+          </div>
+          <div class="clearer">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="left">
+        &copy; {% now "Y" %} L.U.G. Tucumán
+      </div>
+      <div class="right">
+        <a href="http://arcsin.se/" target="_blank"><img src="/media/img/cc.png" alt="Arcsin" /></a>
+        <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangosite80x15.gif" border="0" alt="A Django site." title="A Django site." /></a></a>
+        <a href="http://www.usla.org.ar" target="_blank"><img src="/media/img/usla.png" alt="USLA" /></a>
+          </div>
+      <div class="admin">
+        {% block nav-global %}
             <!-- ADMIN MENU -->
             {% if user.is_staff %}
             <a href="{% url admin:index %}">Administrador</a> ·
